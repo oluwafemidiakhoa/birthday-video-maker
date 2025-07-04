@@ -1,22 +1,40 @@
-// settings.gradle
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+// DO NOT PUT 'pluginManagement {}' IN THIS FILE.
 
-pluginManagement {
-    repositories {
-        google()
-        mavenCentral()
-        gradlePluginPortal()
-    }
+// If you are using AGP 7.0+ and managing plugin versions centrally (either in settings.gradle
+// or here with `apply false`), this is the modern way.
+plugins {
+    // Declare the Android Application plugin. The version is typically managed
+    // in settings.gradle's pluginManagement.plugins block or specified here.
+    // 'apply false' means it's declared for subprojects to use but not applied to the root project itself.
+    id 'com.android.application' version '8.11.0' apply false // Example version, adjust as needed
+    id 'com.android.library' version '8.11.0' apply false     // If you have library modules
+    id 'org.jetbrains.kotlin.android' version '1.9.22' apply false // Example version, adjust as needed
 }
 
-dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositories {
-        google()
-        mavenCentral()
-        // You might have other repositories here like jitpack.io
-    }
+// You might have a clean task defined here (optional, but common).
+tasks.register('clean', Delete) {
+    delete rootProject.buildDir
 }
 
-rootProject.name = "YourProjectName" // Replace with your actual project name
-include ':app' // Or other modules you have
-    
+// Older projects might have 'buildscript {}' and 'allprojects {}' blocks here for repositories
+// and plugin classpath dependencies. With modern Gradle, these are largely superseded by
+// 'pluginManagement {}' and 'dependencyResolutionManagement {}' in settings.gradle.
+// Example of older style (generally avoid for new projects if possible):
+// buildscript {
+//     repositories {
+//         google()
+//         mavenCentral()
+//     }
+//     dependencies {
+//         classpath 'com.android.tools.build:gradle:8.2.0' // Example
+//         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.22" // Example
+//     }
+// }
+//
+// allprojects {
+//     repositories {
+//         google()
+//         mavenCentral()
+//     }
+// }
