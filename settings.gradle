@@ -1,2 +1,29 @@
-rootProject.name = "BirthdayLLMVideo"
-include(":app")
+// settings.gradle
+
+/**
+ * This block configures where Gradle will look for plugins.
+ * It's essential for resolving plugins like 'com.android.application'.
+ */
+pluginManagement {
+    repositories {
+        google()        // For Google-hosted plugins, including the Android Gradle Plugin.
+        mavenCentral()  // For many common open-source plugins.
+        gradlePluginPortal() // For plugins published to the official Gradle Plugin Portal.
+    }
+}
+
+/**
+ * This block configures where Gradle will look for your project's library dependencies.
+ */
+dependencyResolutionManagement {
+    // This mode ensures that repositories are only declared here and not in module-level build.gradle files.
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()        // For Google-hosted libraries (AndroidX, Google Play Services, etc.).
+        mavenCentral()  // For a vast range of open-source libraries.
+        // maven { url 'https://jitpack.io' } // Uncomment if you use libraries hosted on JitPack.
+    }
+}
+
+rootProject.name = "BirthdayVideoMaker" // Set your project's root name.
+include ':app'                         // Include your application module (assuming it's named 'app').

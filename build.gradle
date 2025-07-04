@@ -1,17 +1,22 @@
+// settings.gradle
 
-buildscript {
+pluginManagement {
     repositories {
         google()
         mavenCentral()
-    }
-    dependencies {
-        classpath "com.android.tools.build:gradle:8.2.0"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.22"
+        gradlePluginPortal()
     }
 }
-allprojects {
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         google()
         mavenCentral()
+        // You might have other repositories here like jitpack.io
     }
 }
+
+rootProject.name = "YourProjectName" // Replace with your actual project name
+include ':app' // Or other modules you have
+    
